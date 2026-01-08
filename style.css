@@ -1,0 +1,342 @@
+/* --- RESET BÁSICO E VARIÁVEIS CSS (Design System) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Cores sugeridas. Altere estes valores para a sua identidade visual! */
+    --color-primary: #3498db; /* Azul vibrante */
+    --color-secondary: #2c3e50; /* Azul escuro */
+    --color-text: #333;
+    --color-background: #f8f9fa;
+    --color-white: #ffffff;
+}
+
+body {
+    font-family: 'Arial', sans-serif; 
+    line-height: 1.6;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+}
+
+/* --- BOTÕES (CHAMADAS À AÇÃO) --- */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: bold;
+}
+
+.primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* --- LAYOUT E SEÇÕES GERAIS --- */
+.section-padded {
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: var(--color-secondary);
+}
+
+/* --- HEADER E NAV BAR (FLEXBOX) --- */
+header {
+    background-color: var(--color-white);
+    padding: 15px 5%;
+    display: flex; /* FLEXBOX para alinhar logo e menu */
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+}
+
+.nav-menu li {
+    margin-left: 20px;
+}
+
+.nav-menu a {
+    color: var(--color-text);
+}
+.nav-menu a:hover {
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.menu-toggle {
+    display: none; /* Escondido no desktop */
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--color-secondary);
+}
+
+/* --- HERO SECTION ('SOBRE MIM') --- */
+.hero {
+    min-height: 60vh;
+    padding: 100px 5%;
+    text-align: center;
+    background: linear-gradient(to right, #ecf0f1, var(--color-white));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+.hero .subtitle {
+    color: var(--color-primary);
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+.bio-content {
+    max-width: 800px;
+}
+
+/* --- SKILLS GRID (GRID LAYOUT) --- */
+#skills {
+    background-color: var(--color-white);
+}
+
+.skills-grid {
+    display: grid; /* GRID para o layout das skills */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.skill-item {
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+    transition: box-shadow 0.3s;
+}
+.skill-item:hover {
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.skill-icon {
+    font-size: 3.5rem;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+/* Estilo para as Barras de Progresso */
+.skill-bar {
+    background-color: #e9ecef;
+    border-radius: 10px;
+    height: 12px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    border-radius: 10px;
+    background-color: var(--color-primary);
+    text-align: center;
+    color: transparent; 
+    transition: width 1.5s ease-out;
+}
+
+/* Percentagens (Mantenha as classes no HTML para que isto funcione!) */
+.skill-level.html { width: 95%; } 
+.skill-level.css { width: 90%; }
+.skill-level.js { width: 75%; }
+
+/* --- PROJECTS GRID (GRID LAYOUT) --- */
+.projects-grid {
+    display: grid; /* GRID para o layout dos projetos */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Garante que a imagem preenche o espaço sem distorcer */
+    display: block;
+}
+
+.project-card-content {
+    padding: 20px;
+}
+.project-card-content h3 {
+    margin-bottom: 10px;
+    color: var(--color-secondary);
+}
+.project-card-content p {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.github {
+    margin-left: 10px;
+    background-color: #333;
+}
+
+.github:hover {
+    background-color: #555;
+}
+
+/* --- CONTACTOS --- */
+#contacto {
+    text-align: center;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}
+
+#contacto h2 {
+    color: var(--color-white);
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.contact-link {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    transition: opacity 0.3s;
+}
+
+.contact-link:hover {
+    opacity: 0.8;
+}
+
+.contact-link i {
+    margin-right: 10px;
+}
+
+/* --- RODAPÉ --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: var(--color-white);
+    font-size: 0.9rem;
+}
+
+
+/* ======================================= */
+/* --- RESPONSIVIDADE (MEDIA QUERIES) --- */
+/* ======================================= */
+
+/* Media Query para Telemóveis (Ecrãs até 768px) */
+@media (max-width: 768px) {
+    
+    /* Mostrar o botão do menu e esconder o menu grande */
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-menu {
+        display: none; /* Esconder o menu por defeito no mobile */
+        width: 100%;
+        position: absolute;
+        top: 60px; 
+        left: 0;
+        background-color: var(--color-white);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    /* Estilo do menu quando está ativo (adicionado via JS) */
+    .nav-menu.active {
+        display: block;
+    }
+
+    .nav-menu ul {
+        flex-direction: column; /* Lista vertical */
+        padding: 10px 0;
+    }
+
+    .nav-menu li {
+        margin: 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 15px 5%;
+        color: var(--color-text);
+    }
+    
+    /* Ajustes para mobile */
+    .hero {
+        padding: 60px 5%;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr; /* 1 coluna em mobile */
+    }
+
+    .section-padded {
+        padding: 40px 5%;
+    }
+}
