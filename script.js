@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. SELEÇÃO DE ELEMENTOS ---
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-menu a');
+    // Atualizado para selecionar os links dentro da nova estrutura ios-navbar
+    const navLinks = document.querySelectorAll('.ios-item'); 
     
     // Elementos do Night Mode
     const themeToggle = document.getElementById('theme-toggle');
@@ -53,9 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 4. FECHAR MENU AO CLICAR NUM LINK ---
+    // --- 4. GESTÃO DE CLIQUES NO MENU (ESTILO iOS) ---
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
+            // Lógica de "Seleção" (Visual da Cápsula)
+            navLinks.forEach(item => item.classList.remove('active'));
+            link.classList.add('active');
+
+            // Fechar menu mobile ao clicar num link (Funcionalidade original mantida)
             if (navMenu.classList.contains('active')) {
                 navMenu.classList.remove('active');
                 
