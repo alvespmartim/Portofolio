@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. SELEÇÃO DE ELEMENTOS ---
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
-    // Atualizado para selecionar os links dentro da nova estrutura ios-navbar
     const navLinks = document.querySelectorAll('.ios-item'); 
     
     // Elementos do Night Mode
@@ -61,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.forEach(item => item.classList.remove('active'));
             link.classList.add('active');
 
-            // Fechar menu mobile ao clicar num link (Funcionalidade original mantida)
+            // Fechar menu mobile ao clicar num link
             if (navMenu.classList.contains('active')) {
                 navMenu.classList.remove('active');
                 
@@ -70,5 +69,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 icon.classList.add('fa-bars');
             }
         });
+    });
+
+    // --- 5. ANIMAÇÕES AO FAZER SCROLL (PROJETOS E SKILLS) ---
+    const observerOptions = {
+        threshold: 0.15 // Ativa quando 15% do elemento está visível
+    };
+
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Adiciona a classe .show que dispara as animações definidas no CSS
+                entry.target.classList.add('show');
+                // Para de observar o elemento após a animação acontecer uma vez
+                scrollObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Selecionar e observar Cartões de Projeto (Deslizam para a direita)
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        scrollObserver.observe(card);
+    });
+
+    // Selecionar e observar Itens de Skills (Deslizam de cima para baixo)
+    const skillItems = document.querySelectorAll('.skill-item');
+    skillItems.forEach(item => {
+        scrollObserver.observe(item);
     });
 });

@@ -41,6 +41,7 @@ body {
     color: var(--color-text);
     scroll-behavior: smooth;
     transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden; /* Evita scroll horizontal durante as animações */
 }
 
 a {
@@ -176,7 +177,7 @@ header {
     letter-spacing: 0.5px;
 }
 
-/* Estado Ativo (O efeito selecionado) */
+/* Estado Ativo */
 .ios-item.active {
     background: var(--ios-active);
 }
@@ -213,7 +214,7 @@ header {
     margin-bottom: 10px;
 }
 
-/* --- SKILLS GRID --- */
+/* --- SKILLS GRID & ANIMATION --- */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -226,12 +227,22 @@ header {
     text-align: center;
     background-color: var(--color-card-bg);
     border: 1px solid var(--color-border);
-    transition: box-shadow 0.3s, transform 0.3s;
+    transition: box-shadow 0.3s, transform 0.3s, opacity 0.7s ease-out, transform 0.7s ease-out;
+    
+    /* Estado inicial: Surge de Cima */
+    opacity: 0;
+    transform: translateY(-60px); 
+}
+
+/* Ativado via JS ao fazer scroll */
+.skill-item.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .skill-item:hover {
     box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-    transform: translateY(-5px);
+    transform: translateY(-5px) !important; /* !important para sobrepor a animação de entrada se necessário */
 }
 
 .skill-bar {
@@ -251,24 +262,7 @@ body.dark-mode .skill-bar {
     background-color: var(--color-primary);
 }
 
-/* --- PROJECTS GRID --- */
-.project-title-badge {
-    display: inline-block;          
-    background-color: #3498db;      
-    color: white !important;        
-    padding: 8px 16px;              
-    border-radius: 6px;             
-    font-size: 1.1rem;              
-    margin-bottom: 15px;            
-    cursor: default;                
-    user-select: none;              
-    font-weight: bold;
-}
-
-.project-title-badge:hover {
-    background-color: #2980b9;      
-}
-
+/* --- PROJECTS GRID & ANIMATION --- */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -281,11 +275,20 @@ body.dark-mode .skill-bar {
     overflow: hidden;
     border: 1px solid var(--color-border);
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, opacity 0.8s ease-out, transform 0.8s ease-out;
+    
+    /* Estado inicial: Surge da Esquerda */
+    opacity: 0;
+    transform: translateX(-100px); 
+}
+
+.project-card.show {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) !important;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
@@ -301,6 +304,23 @@ body.dark-mode .skill-bar {
 
 .project-card-content p {
     text-align: justify;
+}
+
+.project-title-badge {
+    display: inline-block;          
+    background-color: #3498db;      
+    color: white !important;        
+    padding: 8px 16px;              
+    border-radius: 6px;             
+    font-size: 1.1rem;              
+    margin-bottom: 15px;            
+    cursor: default;                
+    user-select: none;              
+    font-weight: bold;
+}
+
+.project-title-badge:hover {
+    background-color: #2980b9;      
 }
 
 /* --- CONTACTOS --- */
@@ -354,7 +374,6 @@ footer {
     
     .nav-menu.active { display: block; }
     
-    /* Ajuste do menu iOS para Mobile */
     .ios-navbar {
         flex-direction: column;
         border-radius: 15px;
@@ -367,5 +386,13 @@ footer {
         gap: 15px;
         width: 100%;
         padding: 12px 20px;
+    }
+
+    .project-card {
+        transform: translateX(-50px);
+    }
+    
+    .skill-item {
+        transform: translateY(-30px);
     }
 }
