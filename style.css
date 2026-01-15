@@ -223,8 +223,8 @@ header {
 /* Nome MARTIM (Ajustado: Mais alto e tamanho para caber) */
 .bg-text {
     position: absolute;
-    right: -5%;
-    bottom: 15%; /* Subiu de -10% para 15% */
+    right: -1%;
+    bottom: -5%; /* Subiu de -10% para 15% */
     font-size: 22vw; /* Diminuído para aparecer o nome todo */
     font-weight: 900;
     
