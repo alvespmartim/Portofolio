@@ -18,8 +18,11 @@
     /* Variáveis do novo Menu */
     --ios-bg: rgba(200, 200, 200, 0.15);
     --ios-active: rgba(0, 0, 0, 0.08);
-    /* Alteração para Fundo Preto na Hero */
-    --color-hero-bg: #000000; 
+
+    /* --- VARIÁVEIS PARA A HERO --- */
+    --color-hero-bg: #f8f9fa; 
+    --color-hero-text: #333333;
+    --bg-text-stroke: rgba(0, 0, 0, 0.1); /* Contorno escuro para o modo claro */
 }
 
 /* --- MODO ESCURO (Ativado via JS) --- */
@@ -33,6 +36,11 @@ body.dark-mode {
     --color-border: #333;
     --ios-bg: rgba(255, 255, 255, 0.05);
     --ios-active: rgba(255, 255, 255, 0.12);
+
+    /* --- VARIÁVEIS PARA A HERO (Modo Escuro) --- */
+    --color-hero-bg: #000000; 
+    --color-hero-text: #ffffff;
+    --bg-text-stroke: rgba(255, 255, 255, 0.2); /* Contorno claro para o modo escuro */
 }
 
 body {
@@ -71,16 +79,16 @@ a {
     color: #fff;
 }
 
-/* Ajuste do botão secundário na Hero preta */
+/* Ajuste do botão secundário na Hero dinâmica */
 .hero .secondary {
     background-color: transparent;
-    border: 1px solid #ffffff;
-    color: #ffffff;
+    border: 1px solid var(--color-hero-text);
+    color: var(--color-hero-text);
 }
 
 .hero .secondary:hover {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: var(--color-hero-text);
+    color: var(--color-hero-bg);
 }
 
 .btn:hover {
@@ -208,65 +216,49 @@ header {
     color: var(--color-text);
 }
 
-/* --- HERO SECTION (DESIGN STUDIO / FUNDO PRETO) --- */
+/* --- HERO SECTION (DESIGN STUDIO / FUNDO DINÂMICO) --- */
 .hero {
     position: relative;
     min-height: 85vh;
     padding: 100px 10%;
-    background-color: var(--color-hero-bg); /* Fundo Preto */
+    background-color: var(--color-hero-bg); 
     display: flex;
     align-items: center;
     justify-content: flex-start; 
     overflow: hidden;
+    transition: background-color 0.3s ease;
 }
 
-/* Nome MARTIM (Ajustado: Mais alto e tamanho para caber) */
+/* Nome MARTIM (Apenas este elemento de fundo agora) */
 .bg-text {
     position: absolute;
-    right: -1%;
-    bottom: -5%; /* Subiu de -10% para 15% */
-    font-size: 22vw; /* Diminuído para aparecer o nome todo */
+    right: -2%;
+    bottom: -8%; 
+    font-size: 25vw; /* Aumentado ligeiramente já que o Alves saiu */
     font-weight: 900;
-    
-    /* Efeito de Contorno */
     color: transparent;
-    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.2); 
-    
+    -webkit-text-stroke: 2px var(--bg-text-stroke); 
     line-height: 0.7;
     user-select: none;
     z-index: 1;
     pointer-events: none;
     font-family: 'Arial Black', sans-serif;
-}
-
-/* Nome ALVES (Diagonal no lado direito) */
-.bg-text-diagonal {
-    position: absolute;
-    right: 5%;
-    top: 25%;
-    font-size: 12vw;
-    font-weight: 900;
-    font-family: 'Arial Black', sans-serif;
-    color: transparent;
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
-    transform: rotate(-45deg);
-    user-select: none;
-    z-index: 1;
-    pointer-events: none;
+    transition: -webkit-text-stroke 0.3s ease;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
     max-width: 650px;
-    color: white; 
+    color: var(--color-hero-text); 
     text-align: left;
+    transition: color 0.3s ease;
 }
 
 .hero-content h1 {
     font-size: 4rem;
     margin-bottom: 10px;
-    color: #ffffff;
+    color: var(--color-hero-text);
 }
 
 .subtitle {
@@ -274,14 +266,15 @@ header {
     margin-bottom: 25px;
     opacity: 0.9;
     font-weight: bold;
-    color: var(--color-primary); /* Destaque azul no subtítulo */
+    color: var(--color-primary);
 }
 
 .description {
     font-size: 1.1rem;
     margin-bottom: 35px;
     text-align: justify;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--color-hero-text);
+    opacity: 0.85;
 }
 
 /* --- SKILLS GRID & ANIMATION --- */
@@ -298,8 +291,6 @@ header {
     background-color: var(--color-card-bg);
     border: 1px solid var(--color-border);
     transition: box-shadow 0.3s, transform 0.3s, opacity 0.7s ease-out, transform 0.7s ease-out;
-    
-    /* Estado inicial: Surge de Cima */
     opacity: 0;
     transform: translateY(-60px); 
 }
@@ -345,8 +336,6 @@ body.dark-mode .skill-bar {
     border: 1px solid var(--color-border);
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     transition: transform 0.3s, box-shadow 0.3s, opacity 0.8s ease-out, transform 0.8s ease-out;
-    
-    /* Estado inicial: Surge da Esquerda */
     opacity: 0;
     transform: translateX(-100px); 
 }
@@ -369,10 +358,6 @@ body.dark-mode .skill-bar {
 
 .project-card-content {
     padding: 20px;
-}
-
-.project-card-content p {
-    text-align: justify;
 }
 
 .project-title-badge {
@@ -464,12 +449,8 @@ footer {
     }
 
     .bg-text {
-        font-size: 40vw; /* Tamanho ajustado para mobile */
+        font-size: 40vw;
         bottom: 5%;
-    }
-
-    .bg-text-diagonal {
-        display: none; /* Escondido em mobile para não poluir */
     }
 
     .project-card {
