@@ -18,6 +18,8 @@
     /* Variáveis do novo Menu */
     --ios-bg: rgba(200, 200, 200, 0.15);
     --ios-active: rgba(0, 0, 0, 0.08);
+    /* Alteração para Fundo Preto na Hero */
+    --color-hero-bg: #000000; 
 }
 
 /* --- MODO ESCURO (Ativado via JS) --- */
@@ -29,7 +31,6 @@ body.dark-mode {
     --color-header-bg: #181818;  
     --color-secondary: #34495e;  
     --color-border: #333;
-    /* Variáveis do novo Menu no Dark Mode */
     --ios-bg: rgba(255, 255, 255, 0.05);
     --ios-active: rgba(255, 255, 255, 0.12);
 }
@@ -41,7 +42,7 @@ body {
     color: var(--color-text);
     scroll-behavior: smooth;
     transition: background-color 0.3s ease, color 0.3s ease;
-    overflow-x: hidden; /* Evita scroll horizontal durante as animações */
+    overflow-x: hidden; 
 }
 
 a {
@@ -68,6 +69,18 @@ a {
 .secondary {
     background-color: var(--color-secondary);
     color: #fff;
+}
+
+/* Ajuste do botão secundário na Hero preta */
+.hero .secondary {
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+}
+
+.hero .secondary:hover {
+    background-color: #ffffff;
+    color: #000000;
 }
 
 .btn:hover {
@@ -137,7 +150,6 @@ header {
     margin-right: 30px;
 }
 
-/* Estilo da Cápsula iOS */
 .ios-navbar {
     display: flex;
     background: var(--ios-bg);
@@ -177,7 +189,6 @@ header {
     letter-spacing: 0.5px;
 }
 
-/* Estado Ativo */
 .ios-item.active {
     background: var(--ios-active);
 }
@@ -197,21 +208,80 @@ header {
     color: var(--color-text);
 }
 
-/* --- HERO SECTION --- */
+/* --- HERO SECTION (DESIGN STUDIO / FUNDO PRETO) --- */
 .hero {
-    min-height: 60vh;
-    padding: 100px 5%;
-    text-align: center;
-    background: linear-gradient(to bottom, var(--color-white), var(--color-background));
+    position: relative;
+    min-height: 85vh;
+    padding: 100px 10%;
+    background-color: var(--color-hero-bg); /* Fundo Preto */
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: flex-start; 
+    overflow: hidden;
 }
 
-.hero h1 {
-    font-size: 3rem;
+/* Nome MARTIM (Ajustado: Mais alto e tamanho para caber) */
+.bg-text {
+    position: absolute;
+    right: -5%;
+    bottom: 15%; /* Subiu de -10% para 15% */
+    font-size: 22vw; /* Diminuído para aparecer o nome todo */
+    font-weight: 900;
+    
+    /* Efeito de Contorno */
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.2); 
+    
+    line-height: 0.7;
+    user-select: none;
+    z-index: 1;
+    pointer-events: none;
+    font-family: 'Arial Black', sans-serif;
+}
+
+/* Nome ALVES (Diagonal no lado direito) */
+.bg-text-diagonal {
+    position: absolute;
+    right: 5%;
+    top: 25%;
+    font-size: 12vw;
+    font-weight: 900;
+    font-family: 'Arial Black', sans-serif;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+    transform: rotate(-45deg);
+    user-select: none;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+    color: white; 
+    text-align: left;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
     margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.subtitle {
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    opacity: 0.9;
+    font-weight: bold;
+    color: var(--color-primary); /* Destaque azul no subtítulo */
+}
+
+.description {
+    font-size: 1.1rem;
+    margin-bottom: 35px;
+    text-align: justify;
+    color: rgba(255, 255, 255, 0.85);
 }
 
 /* --- SKILLS GRID & ANIMATION --- */
@@ -234,7 +304,6 @@ header {
     transform: translateY(-60px); 
 }
 
-/* Ativado via JS ao fazer scroll */
 .skill-item.show {
     opacity: 1;
     transform: translateY(0);
@@ -242,7 +311,7 @@ header {
 
 .skill-item:hover {
     box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-    transform: translateY(-5px) !important; /* !important para sobrepor a animação de entrada se necessário */
+    transform: translateY(-5px) !important;
 }
 
 .skill-bar {
@@ -319,10 +388,6 @@ body.dark-mode .skill-bar {
     font-weight: bold;
 }
 
-.project-title-badge:hover {
-    background-color: #2980b9;      
-}
-
 /* --- CONTACTOS --- */
 #contacto {
     text-align: center;
@@ -386,6 +451,25 @@ footer {
         gap: 15px;
         width: 100%;
         padding: 12px 20px;
+    }
+
+    .hero {
+        padding: 80px 5%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .bg-text {
+        font-size: 40vw; /* Tamanho ajustado para mobile */
+        bottom: 5%;
+    }
+
+    .bg-text-diagonal {
+        display: none; /* Escondido em mobile para não poluir */
     }
 
     .project-card {
