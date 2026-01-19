@@ -1,463 +1,463 @@
 /* --- RESET BÁSICO E VARIÁVEIS CSS (Design System) --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* { /* Seleciona todos os elementos do documento */
+    margin: 0; /* Remove as margens externas padrão */
+    padding: 0; /* Remove os preenchimentos internos padrão */
+    box-sizing: border-box; /* Inclui bordas e preenchimento no cálculo da largura total */
 }
 
-:root {
+:root { /* Define as variáveis globais no elemento raiz do documento */
     /* MODO CLARO (Default) */
-    --color-primary: #3498db;
-    --color-secondary: #2c3e50;
-    --color-text: #333;
-    --color-background: #f8f9fa;
-    --color-white: #ffffff;
-    --color-card-bg: #ffffff;
-    --color-header-bg: #ffffff;
-    --color-border: #ddd;
+    --color-primary: #3498db; /* Azul principal para destaques e botões */
+    --color-secondary: #2c3e50; /* Tom escuro para elementos secundários */
+    --color-text: #333; /* Cor principal para o texto legível */
+    --color-background: #f8f9fa; /* Cor de fundo das secções */
+    --color-white: #ffffff; /* Cor branca pura para elementos limpos */
+    --color-card-bg: #ffffff; /* Fundo dos cartões de projeto e skills */
+    --color-header-bg: #ffffff; /* Cor de fundo da barra de navegação */
+    --color-border: #ddd; /* Cor cinza para linhas e bordas subtis */
     /* Variáveis do novo Menu */
-    --ios-bg: rgba(200, 200, 200, 0.15);
-    --ios-active: rgba(0, 0, 0, 0.08);
+    --ios-bg: rgba(200, 200, 200, 0.15); /* Fundo translúcido para a barra iOS */
+    --ios-active: rgba(0, 0, 0, 0.08); /* Fundo para o item de menu selecionado */
 
     /* --- VARIÁVEIS PARA A HERO --- */
-    --color-hero-bg: #f8f9fa; 
-    --color-hero-text: #333333;
-    --bg-text-stroke: rgba(0, 0, 0, 0.1); /* Contorno escuro para o modo claro */
+    --color-hero-bg: #f8f9fa; /* Fundo específico para a secção de entrada */
+    --color-hero-text: #333333; /* Cor do texto na secção de entrada */
+    --bg-text-stroke: rgba(0, 0, 0, 0.1); /* Contorno escuro para o texto gigante de fundo */
 }
 
 /* --- MODO ESCURO (Ativado via JS) --- */
-body.dark-mode {
-    --color-background: #121212; 
-    --color-text: #f1f1f1;       
-    --color-white: #1e1e1e;      
-    --color-card-bg: #1e1e1e;    
-    --color-header-bg: #181818;  
-    --color-secondary: #34495e;  
-    --color-border: #333;
-    --ios-bg: rgba(255, 255, 255, 0.05);
-    --ios-active: rgba(255, 255, 255, 0.12);
+body.dark-mode { /* Aplica estes estilos quando a classe dark-mode está ativa */
+    --color-background: #121212; /* Fundo quase preto para conforto visual */
+    --color-text: #f1f1f1; /* Texto claro para contraste sobre fundo escuro */
+    --color-white: #1e1e1e; /* Tom cinza escuro para superfícies brancas */
+    --color-card-bg: #1e1e1e; /* Fundo dos cartões no modo noturno */
+    --color-header-bg: #181818; /* Cabeçalho mais escuro que o fundo geral */
+    --color-secondary: #34495e; /* Ajuste do tom secundário para o escuro */
+    --color-border: #333; /* Bordas mais escuras para não brilhar no dark mode */
+    --ios-bg: rgba(255, 255, 255, 0.05); /* Fundo do menu iOS mais discreto */
+    --ios-active: rgba(255, 255, 255, 0.12); /* Destaque do item ativo no modo escuro */
 
     /* --- VARIÁVEIS PARA A HERO (Modo Escuro) --- */
-    --color-hero-bg: #000000; 
-    --color-hero-text: #ffffff;
-    --bg-text-stroke: rgba(255, 255, 255, 0.2); /* Contorno claro para o modo escuro */
+    --color-hero-bg: #000000; /* Fundo preto puro para a secção hero */
+    --color-hero-text: #ffffff; /* Texto branco puro para máximo contraste */
+    --bg-text-stroke: rgba(255, 255, 255, 0.2); /* Contorno claro para o nome de fundo */
 }
 
-body {
-    font-family: 'Arial', sans-serif; 
-    line-height: 1.6;
-    background-color: var(--color-background);
-    color: var(--color-text);
-    scroll-behavior: smooth;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    overflow-x: hidden; 
+body { /* Estilos base para o corpo da página */
+    font-family: 'Arial', sans-serif; /* Define a fonte principal sem serifa */
+    line-height: 1.6; /* Define o espaçamento entre linhas do texto */
+    background-color: var(--color-background); /* Aplica a variável de cor de fundo */
+    color: var(--color-text); /* Aplica a variável de cor de texto */
+    scroll-behavior: smooth; /* Torna o deslizar entre âncoras suave */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave ao mudar de tema */
+    overflow-x: hidden; /* Evita o aparecimento de barra lateral horizontal */
 }
 
-a {
-    text-decoration: none;
-    color: var(--color-primary);
+a { /* Estilos base para todos os links */
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+    color: var(--color-primary); /* Usa a cor primária para as ligações */
 }
 
 /* --- BOTÕES E ELEMENTOS INTERATIVOS --- */
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
-    text-align: center;
-    transition: background-color 0.3s, transform 0.2s;
-    font-weight: bold;
+.btn { /* Classe base para botões */
+    display: inline-block; /* Permite definir dimensões sem perder o fluxo de texto */
+    padding: 10px 20px; /* Define o espaço interno vertical e horizontal */
+    margin: 5px; /* Define o espaço exterior entre botões */
+    border-radius: 5px; /* Arredonda os cantos do botão */
+    text-align: center; /* Centra o texto dentro do botão */
+    transition: background-color 0.3s, transform 0.2s; /* Anima a cor e o movimento ao interagir */
+    font-weight: bold; /* Deixa o texto do botão em negrito */
 }
 
-.primary {
-    background-color: var(--color-primary);
-    color: #fff;
+.primary { /* Botão de ação principal */
+    background-color: var(--color-primary); /* Fundo azul definido nas variáveis */
+    color: #fff; /* Texto sempre branco para legibilidade */
 }
 
-.secondary {
-    background-color: var(--color-secondary);
-    color: #fff;
+.secondary { /* Botão de ação secundária */
+    background-color: var(--color-secondary); /* Fundo cinza escuro ou azulado */
+    color: #fff; /* Texto branco */
 }
 
 /* Ajuste do botão secundário na Hero dinâmica */
-.hero .secondary {
-    background-color: transparent;
-    border: 1px solid var(--color-hero-text);
-    color: var(--color-hero-text);
+.hero .secondary { /* Estilo específico para o botão secundário dentro da hero */
+    background-color: transparent; /* Remove a cor de fundo */
+    border: 1px solid var(--color-hero-text); /* Adiciona uma borda com a cor do texto hero */
+    color: var(--color-hero-text); /* Aplica a cor de texto da secção */
 }
 
-.hero .secondary:hover {
-    background-color: var(--color-hero-text);
-    color: var(--color-hero-bg);
+.hero .secondary:hover { /* Comportamento do botão ao passar o rato */
+    background-color: var(--color-hero-text); /* Inverte o fundo com a cor do texto */
+    color: var(--color-hero-bg); /* Inverte o texto com a cor de fundo */
 }
 
-.btn:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
+.btn:hover { /* Efeito geral de pairar nos botões */
+    opacity: 0.9; /* Torna o botão ligeiramente transparente */
+    transform: translateY(-2px); /* Eleva o botão ligeiramente para efeito 3D */
 }
 
-.theme-btn {
-    background: none;
-    border: none;
-    font-size: 1.4rem;
-    cursor: pointer;
-    color: var(--color-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-    transition: transform 0.3s ease;
+.theme-btn { /* Estilos do botão de alternância de tema */
+    background: none; /* Remove fundo padrão de botão */
+    border: none; /* Remove borda padrão de botão */
+    font-size: 1.4rem; /* Define o tamanho do ícone */
+    cursor: pointer; /* Muda o cursor para mão ao passar o rato */
+    color: var(--color-primary); /* Usa a cor primária para o ícone */
+    display: flex; /* Alinha o ícone internamente */
+    align-items: center; /* Centra o ícone verticalmente */
+    justify-content: center; /* Centra o ícone horizontalmente */
+    padding: 5px; /* Espaço de clique em volta do ícone */
+    transition: transform 0.3s ease; /* Transição suave para o efeito de escala */
 }
 
-.theme-btn:hover {
-    transform: scale(1.1);
+.theme-btn:hover { /* Efeito de hover no botão de tema */
+    transform: scale(1.1); /* Aumenta o tamanho do ícone em 10% */
 }
 
-.header-buttons {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+.header-buttons { /* Contentor dos botões do cabeçalho */
+    display: flex; /* Coloca os botões lado a lado */
+    align-items: center; /* Alinha os botões pelo centro vertical */
+    gap: 15px; /* Espaçamento fixo entre os botões */
 }
 
 /* --- LAYOUT E SEÇÕES GERAIS --- */
-.section-padded {
-    padding: 80px 5%;
-    max-width: 1200px;
-    margin: 0 auto;
+.section-padded { /* Classe para dar espaçamento às secções */
+    padding: 80px 5%; /* Grande margem interna vertical e menor horizontal */
+    max-width: 1200px; /* Limita a largura máxima do conteúdo */
+    margin: 0 auto; /* Centra o contentor na página */
 }
 
-h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2rem;
-    color: var(--color-primary);
+h2 { /* Títulos das secções principais */
+    text-align: center; /* Centra o título horizontalmente */
+    margin-bottom: 40px; /* Espaço para o conteúdo que vem abaixo */
+    font-size: 2rem; /* Define o tamanho da fonte do título */
+    color: var(--color-primary); /* Aplica a cor azul aos títulos */
 }
 
 /* --- HEADER E NOVO MENU iOS --- */
-header {
-    background-color: var(--color-header-bg);
-    padding: 15px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky; 
-    top: 0;
-    z-index: 1000;
-    transition: background-color 0.3s ease;
+header { /* Barra superior de navegação */
+    background-color: var(--color-header-bg); /* Aplica cor de fundo conforme o tema */
+    padding: 15px 5%; /* Espaçamento interno da barra */
+    display: flex; /* Ativa o layout flexbox */
+    justify-content: space-between; /* Coloca logo num lado e navegação no outro */
+    align-items: center; /* Alinha todos os elementos verticalmente */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Adiciona sombra subtil por baixo */
+    position: sticky; /* Mantém o cabeçalho fixo no topo ao fazer scroll */
+    top: 0; /* Define a posição fixa no topo do ecrã */
+    z-index: 1000; /* Garante que o menu fica acima de todo o conteúdo */
+    transition: background-color 0.3s ease; /* Suaviza a troca de cor no modo escuro */
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--color-primary);
+.logo { /* Estilização do texto do logótipo */
+    font-size: 1.5rem; /* Tamanho da fonte do logo */
+    font-weight: bold; /* Texto em negrito */
+    color: var(--color-primary); /* Aplica a cor azul ao logo */
 }
 
-.nav-menu {
-    margin-left: auto;
-    margin-right: 30px;
+.nav-menu { /* Contentor da navegação */
+    margin-left: auto; /* Empurra o menu para a direita */
+    margin-right: 30px; /* Dá margem em relação aos botões laterais */
 }
 
-.ios-navbar {
-    display: flex;
-    background: var(--ios-bg);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-radius: 50px;
-    padding: 5px;
-    gap: 4px;
-    border: 1px solid rgba(150, 150, 150, 0.1);
+.ios-navbar { /* Contentor em forma de cápsula tipo iOS */
+    display: flex; /* Alinha links horizontalmente */
+    background: var(--ios-bg); /* Cor translúcida de fundo */
+    backdrop-filter: blur(15px); /* Efeito de vidro desfocado atrás do menu */
+    -webkit-backdrop-filter: blur(15px); /* Suporte para navegadores Safari */
+    border-radius: 50px; /* Forma de cápsula arredondada */
+    padding: 5px; /* Espaço entre a cápsula e os itens */
+    gap: 4px; /* Pequeno espaço entre os itens do menu */
+    border: 1px solid rgba(150, 150, 150, 0.1); /* Borda fina quase invisível */
 }
 
-.ios-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 20px;
-    border-radius: 40px;
-    min-width: 90px;
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.ios-item { /* Estilo de cada link do menu iOS */
+    display: flex; /* Ativa flexbox */
+    flex-direction: column; /* Coloca ícone acima do texto */
+    align-items: center; /* Centra ícone e texto horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    padding: 8px 20px; /* Espaçamento interno do botão */
+    border-radius: 40px; /* Arredonda o item individual */
+    min-width: 90px; /* Garante largura mínima para consistência */
+    text-decoration: none; /* Remove sublinhado */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Animação suave com curva natural */
 }
 
-.ios-item i {
-    font-size: 1.1rem;
-    margin-bottom: 2px;
-    color: var(--color-text);
-    opacity: 0.5;
+.ios-item i { /* Ícones dentro do menu iOS */
+    font-size: 1.1rem; /* Tamanho do ícone */
+    margin-bottom: 2px; /* Espaço para o texto abaixo */
+    color: var(--color-text); /* Cor base do texto */
+    opacity: 0.5; /* Deixa o ícone semi-transparente quando não ativo */
 }
 
-.ios-item span {
-    font-size: 10px;
-    font-weight: 600;
-    color: var(--color-text);
-    opacity: 0.7;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+.ios-item span { /* Texto dentro do menu iOS */
+    font-size: 10px; /* Tamanho pequeno para aspeto moderno */
+    font-weight: 600; /* Negrito médio */
+    color: var(--color-text); /* Cor base */
+    opacity: 0.7; /* Texto ligeiramente transparente */
+    text-transform: uppercase; /* Coloca o texto em maiúsculas */
+    letter-spacing: 0.5px; /* Aumenta o espaço entre letras */
 }
 
-.ios-item.active {
-    background: var(--ios-active);
+.ios-item.active { /* Estado do link selecionado */
+    background: var(--ios-active); /* Aplica o fundo de destaque */
 }
 
 .ios-item.active i, 
-.ios-item.active span {
-    color: var(--color-primary);
-    opacity: 1;
+.ios-item.active span { /* Ícone e texto quando o link está ativo */
+    color: var(--color-primary); /* Muda para azul */
+    opacity: 1; /* Retira a transparência */
 }
 
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 28px;
-    cursor: pointer;
-    color: var(--color-text);
+.menu-toggle { /* Botão hambúrguer para dispositivos móveis */
+    display: none; /* Escondido por padrão em ecrãs grandes */
+    background: none; /* Sem fundo */
+    border: none; /* Sem borda */
+    font-size: 28px; /* Tamanho grande para toque fácil */
+    cursor: pointer; /* Cursor de clique */
+    color: var(--color-text); /* Cor adaptável ao tema */
 }
 
 /* --- HERO SECTION (DESIGN STUDIO / FUNDO DINÂMICO) --- */
-.hero {
-    position: relative;
-    min-height: 85vh;
-    padding: 100px 10%;
-    background-color: var(--color-hero-bg); 
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; 
-    overflow: hidden;
-    transition: background-color 0.3s ease;
+.hero { /* Secção principal de entrada */
+    position: relative; /* Permite posicionar o texto de fundo em relação a isto */
+    min-height: 85vh; /* Ocupa 85% da altura visível do ecrã */
+    padding: 100px 10%; /* Margens generosas para o conteúdo */
+    background-color: var(--color-hero-bg); /* Cor de fundo adaptável */
+    display: flex; /* Ativa flexbox */
+    align-items: center; /* Centra o conteúdo verticalmente */
+    justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+    overflow: hidden; /* Garante que o texto gigante não cria scroll */
+    transition: background-color 0.3s ease; /* Transição de fundo ao mudar tema */
 }
 
 /* Nome MARTIM (Apenas este elemento de fundo agora) */
-.bg-text {
-    position: absolute;
-    right: -2%;
-    bottom: -8%; 
-    font-size: 25vw; /* Aumentado ligeiramente já que o Alves saiu */
-    font-weight: 900;
-    color: transparent;
-    -webkit-text-stroke: 2px var(--bg-text-stroke); 
-    line-height: 0.7;
-    user-select: none;
-    z-index: 1;
-    pointer-events: none;
-    font-family: 'Arial Black', sans-serif;
-    transition: -webkit-text-stroke 0.3s ease;
+.bg-text { /* Estilo do texto gigante decorativo de fundo */
+    position: absolute; /* Sai do fluxo normal para flutuar no fundo */
+    right: -2%; /* Encosta ligeiramente à direita */
+    bottom: -8%; /* Fica parcialmente fora do ecrã em baixo */
+    font-size: 25vw; /* Tamanho proporcional à largura da janela (25%) */
+    font-weight: 900; /* Peso extra-pesado para o texto */
+    color: transparent; /* Torna o interior das letras invisível */
+    -webkit-text-stroke: 2px var(--bg-text-stroke); /* Cria o contorno (outline) das letras */
+    line-height: 0.7; /* Estreita o espaço vertical das letras */
+    user-select: none; /* Impede que o utilizador selecione este texto */
+    z-index: 1; /* Fica atrás do conteúdo principal (z-index 2) */
+    pointer-events: none; /* Torna o texto clicável através (transparente a cliques) */
+    font-family: 'Arial Black', sans-serif; /* Fonte mais robusta para o contorno */
+    transition: -webkit-text-stroke 0.3s ease; /* Suaviza a mudança de cor do contorno */
 }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 650px;
-    color: var(--color-hero-text); 
-    text-align: left;
-    transition: color 0.3s ease;
+.hero-content { /* Contentor do texto informativo da hero */
+    position: relative; /* Garante o empilhamento correto */
+    z-index: 2; /* Fica acima do texto gigante de fundo */
+    max-width: 650px; /* Limita a largura do texto para melhor leitura */
+    color: var(--color-hero-text); /* Cor de texto adaptada ao tema */
+    text-align: left; /* Alinhamento à esquerda */
+    transition: color 0.3s ease; /* Suaviza a mudança de cor do texto */
 }
 
-.hero-content h1 {
-    font-size: 4rem;
-    margin-bottom: 10px;
-    color: var(--color-hero-text);
+.hero-content h1 { /* Título principal na hero */
+    font-size: 4rem; /* Texto muito grande */
+    margin-bottom: 10px; /* Espaço para o subtítulo */
+    color: var(--color-hero-text); /* Cor adaptada */
 }
 
-.subtitle {
-    font-size: 1.4rem;
-    margin-bottom: 25px;
-    opacity: 0.9;
-    font-weight: bold;
-    color: var(--color-primary);
+.subtitle { /* Texto debaixo do título h1 */
+    font-size: 1.4rem; /* Tamanho médio de destaque */
+    margin-bottom: 25px; /* Espaço para a descrição */
+    opacity: 0.9; /* Ligeiramente mais baço que o título */
+    font-weight: bold; /* Texto em negrito */
+    color: var(--color-primary); /* Destaca a profissão com a cor primária */
 }
 
-.description {
-    font-size: 1.1rem;
-    margin-bottom: 35px;
-    text-align: justify;
-    color: var(--color-hero-text);
-    opacity: 0.85;
+.description { /* Texto biográfico longo */
+    font-size: 1.1rem; /* Tamanho de corpo de texto padrão */
+    margin-bottom: 35px; /* Espaço para os botões */
+    text-align: justify; /* Alinha o texto em ambos os lados */
+    color: var(--color-hero-text); /* Cor adaptada */
+    opacity: 0.85; /* Legibilidade confortável */
 }
 
 /* --- SKILLS GRID & ANIMATION --- */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
+.skills-grid { /* Contentor das competências */
+    display: grid; /* Ativa grelha CSS */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Cria colunas que se ajustam sozinhas */
+    gap: 30px; /* Espaço entre cada item da grelha */
 }
 
-.skill-item {
-    padding: 25px;
-    border-radius: 8px;
-    text-align: center;
-    background-color: var(--color-card-bg);
-    border: 1px solid var(--color-border);
-    transition: box-shadow 0.3s, transform 0.3s, opacity 0.7s ease-out, transform 0.7s ease-out;
-    opacity: 0;
-    transform: translateY(-60px); 
+.skill-item { /* Cada caixa de competência individual */
+    padding: 25px; /* Espaço interno da caixa */
+    border-radius: 8px; /* Arredonda os cantos da caixa */
+    text-align: center; /* Centra ícones e texto */
+    background-color: var(--color-card-bg); /* Fundo adaptável conforme tema */
+    border: 1px solid var(--color-border); /* Borda fina para definição */
+    transition: box-shadow 0.3s, transform 0.3s, opacity 0.7s ease-out, transform 0.7s ease-out; /* Multi-animação */
+    opacity: 0; /* Começa invisível para a animação de scroll */
+    transform: translateY(-60px); /* Começa deslocada para cima */
 }
 
-.skill-item.show {
-    opacity: 1;
-    transform: translateY(0);
+.skill-item.show { /* Classe adicionada via JS ao fazer scroll */
+    opacity: 1; /* Torna visível */
+    transform: translateY(0); /* Volta à posição original */
 }
 
-.skill-item:hover {
-    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-    transform: translateY(-5px) !important;
+.skill-item:hover { /* Efeito ao passar o rato na skill */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2); /* Sombra mais forte */
+    transform: translateY(-5px) !important; /* Move a caixa para cima (o !important ignora o transform da animação) */
 }
 
-.skill-bar {
-    background-color: #e9ecef;
-    border-radius: 10px;
-    height: 12px;
-    margin-top: 10px;
-    overflow: hidden;
+.skill-bar { /* Fundo da barra de progresso */
+    background-color: #e9ecef; /* Cor cinza clara */
+    border-radius: 10px; /* Bordas arredondadas */
+    height: 12px; /* Altura da barra */
+    margin-top: 10px; /* Distância do título acima */
+    overflow: hidden; /* Garante que o preenchimento não sai da barra */
 }
 
-body.dark-mode .skill-bar {
-    background-color: #333;
+body.dark-mode .skill-bar { /* Barra de progresso no modo escuro */
+    background-color: #333; /* Fundo cinza escuro */
 }
 
-.skill-level {
-    height: 100%;
-    background-color: var(--color-primary);
+.skill-level { /* Preenchimento da barra de progresso */
+    height: 100%; /* Ocupa toda a altura do contentor pai */
+    background-color: var(--color-primary); /* Usa a cor azul para o progresso */
 }
 
 /* --- PROJECTS GRID & ANIMATION --- */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+.projects-grid { /* Contentor dos cartões de projeto */
+    display: grid; /* Ativa grelha */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Colunas flexíveis de no mínimo 300px */
+    gap: 30px; /* Espaço entre projetos */
 }
 
-.project-card {
-    background-color: var(--color-card-bg);
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid var(--color-border);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s, opacity 0.8s ease-out, transform 0.8s ease-out;
-    opacity: 0;
-    transform: translateX(-100px); 
+.project-card { /* Contentor individual de cada projeto */
+    background-color: var(--color-card-bg); /* Fundo adaptável */
+    border-radius: 8px; /* Cantos arredondados */
+    overflow: hidden; /* Corta a imagem caso saia das bordas arredondadas */
+    border: 1px solid var(--color-border); /* Borda fina */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra subtil */
+    transition: transform 0.3s, box-shadow 0.3s, opacity 0.8s ease-out, transform 0.8s ease-out; /* Animações */
+    opacity: 0; /* Invisível inicialmente */
+    transform: translateX(-100px); /* Começa deslocado para a esquerda */
 }
 
-.project-card.show {
-    opacity: 1;
-    transform: translateX(0);
+.project-card.show { /* Ativado via JS no scroll */
+    opacity: 1; /* Aparece gradualmente */
+    transform: translateX(0); /* Desliza para a posição certa */
 }
 
-.project-card:hover {
-    transform: translateY(-5px) !important;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+.project-card:hover { /* Hover no projeto */
+    transform: translateY(-5px) !important; /* Move para cima */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Sombra intensa */
 }
 
-.project-card img {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
+.project-card img { /* Imagem do projeto */
+    width: 100%; /* Ocupa toda a largura do cartão */
+    height: 500px; /* Altura fixa para manter consistência */
+    object-fit: cover; /* Recorta a imagem para preencher o espaço sem distorcer */
 }
 
-.project-card-content {
-    padding: 20px;
+.project-card-content { /* Espaço de texto abaixo da imagem do projeto */
+    padding: 20px; /* Margem interna para o texto */
 }
 
-.project-title-badge {
-    display: inline-block;          
-    background-color: #3498db;      
-    color: white !important;        
-    padding: 8px 16px;              
-    border-radius: 6px;             
-    font-size: 1.1rem;              
-    margin-bottom: 15px;            
-    cursor: default;                
-    user-select: none;              
-    font-weight: bold;
+.project-title-badge { /* Título do projeto em estilo etiqueta */
+    display: inline-block; /* Comporta-se como bloco mas só ocupa a largura do texto */
+    background-color: #3498db; /* Fundo azul */
+    color: white !important; /* Texto branco forçado */
+    padding: 8px 16px; /* Espaçamento interno da etiqueta */
+    border-radius: 6px; /* Cantos da etiqueta */
+    font-size: 1.1rem; /* Tamanho da fonte */
+    margin-bottom: 15px; /* Espaço para o parágrafo abaixo */
+    cursor: default; /* Mostra que não é um botão clicável */
+    user-select: none; /* Impede a seleção do texto do título */
+    font-weight: bold; /* Texto em negrito */
 }
 
 /* --- CONTACTOS --- */
-#contacto {
-    text-align: center;
-    background-color: var(--color-secondary);
-    color: #fff;
-    padding: 80px 5%;
+#contacto { /* Secção de contacto final */
+    text-align: center; /* Centra todo o conteúdo da secção */
+    background-color: var(--color-secondary); /* Fundo escuro */
+    color: #fff; /* Texto branco */
+    padding: 80px 5%; /* Espaçamento de secção */
 }
 
-#contacto h2 {
-    color: #fff;
+#contacto h2 { /* Título na secção de contacto */
+    color: #fff; /* Força cor branca para contrastar com fundo escuro */
 }
 
-.contact-links {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+.contact-links { /* Contentor dos botões/links de contacto */
+    margin-top: 20px; /* Distância do texto de introdução */
+    display: flex; /* Alinha links horizontalmente */
+    justify-content: center; /* Centra os links */
+    gap: 20px; /* Espaço entre os links */
 }
 
-.contact-link {
-    color: #fff;
-    font-weight: bold;
+.contact-link { /* Cada link de contacto individual */
+    color: #fff; /* Texto branco */
+    font-weight: bold; /* Texto em negrito */
 }
 
 /* --- RODAPÉ --- */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #111;
-    color: #fff;
-    font-size: 0.9rem;
+footer { /* Fundo da página */
+    text-align: center; /* Centra o texto */
+    padding: 20px; /* Espaçamento interno */
+    background-color: #111; /* Preto profundo */
+    color: #fff; /* Texto branco */
+    font-size: 0.9rem; /* Texto ligeiramente menor */
 }
 
 /* --- RESPONSIVIDADE --- */
-@media (max-width: 768px) {
-    .menu-toggle { display: block; }
+@media (max-width: 768px) { /* Estilos aplicados apenas em ecrãs até 768px (Tablets e Telemóveis) */
+    .menu-toggle { display: block; } /* Mostra o botão hambúrguer */
     
-    .nav-menu {
-        display: none;
-        width: 100%;
-        position: absolute;
-        top: 60px; 
-        left: 0;
-        background-color: var(--color-header-bg);
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        margin-right: 0;
-        padding: 20px 5%;
+    .nav-menu { /* Menu de navegação mobile */
+        display: none; /* Escondido por padrão */
+        width: 100%; /* Ocupa a largura total */
+        position: absolute; /* Sobrepõe-se ao conteúdo abaixo */
+        top: 60px; /* Posicionado logo abaixo do cabeçalho */
+        left: 0; /* Encostado à esquerda */
+        background-color: var(--color-header-bg); /* Fundo igual ao cabeçalho */
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra para destacar do fundo */
+        margin-right: 0; /* Remove margem lateral */
+        padding: 20px 5%; /* Espaçamento interno */
     }
     
-    .nav-menu.active { display: block; }
+    .nav-menu.active { display: block; } /* Mostra o menu quando o JS adiciona a classe active */
     
-    .ios-navbar {
-        flex-direction: column;
-        border-radius: 15px;
-        padding: 10px;
+    .ios-navbar { /* Adaptação da barra iOS para vertical no mobile */
+        flex-direction: column; /* Coloca itens uns debaixo dos outros */
+        border-radius: 15px; /* Menos arredondado para encaixar no menu vertical */
+        padding: 10px; /* Espaço interno */
     }
     
-    .ios-item {
-        flex-direction: row;
-        justify-content: flex-start;
-        gap: 15px;
-        width: 100%;
-        padding: 12px 20px;
+    .ios-item { /* Itens do menu no mobile */
+        flex-direction: row; /* Ícone e texto lado a lado */
+        justify-content: flex-start; /* Alinha tudo à esquerda */
+        gap: 15px; /* Espaço entre ícone e texto */
+        width: 100%; /* Ocupa toda a largura da lista */
+        padding: 12px 20px; /* Mais espaço para facilitar o toque com o dedo */
     }
 
-    .hero {
-        padding: 80px 5%;
-        justify-content: center;
-        text-align: center;
+    .hero { /* Ajuste da secção inicial para mobile */
+        padding: 80px 5%; /* Menos preenchimento lateral */
+        justify-content: center; /* Centra o conteúdo horizontalmente */
+        text-align: center; /* Centra o texto */
     }
 
-    .hero-content {
-        text-align: center;
+    .hero-content { /* Contentor de texto na hero mobile */
+        text-align: center; /* Garante texto centrado */
     }
 
-    .bg-text {
-        font-size: 40vw;
-        bottom: 5%;
+    .bg-text { /* Texto gigante de fundo no mobile */
+        font-size: 40vw; /* Aumenta a escala para ser visível num ecrã estreito */
+        bottom: 5%; /* Sobe um pouco a posição */
     }
 
-    .project-card {
-        transform: translateX(-50px);
+    .project-card { /* Ajuste da animação de entrada dos projetos */
+        transform: translateX(-50px); /* Deslocação menor para evitar cortes */
     }
     
-    .skill-item {
-        transform: translateY(-30px);
+    .skill-item { /* Ajuste da animação de entrada das skills */
+        transform: translateY(-30px); /* Deslocação vertical menor */
     }
-}
+} 
